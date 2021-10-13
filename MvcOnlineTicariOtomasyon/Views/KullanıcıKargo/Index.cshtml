@@ -1,0 +1,92 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Kargo>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/KullanıcıLayout.cshtml";
+}
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="/Klasörler/web4/plugins/fontawesome-free/css/all.min.css">
+<!-- AdminLTE css -->
+<link rel="stylesheet" href="/Klasörler/web4/dist/css/adminlte.min.css">
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<body class="hold-transition sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+
+        <section class="content">
+            <div class="container-fluid">
+
+                <!-- Timelime example  -->
+                <div class="row">
+                   
+                    @foreach (var item in Model)
+                    {
+
+
+
+                    <div class="col-md-12">
+                        <!-- The time line -->
+                        <div class="timeline">
+                            <!-- timeline time label -->
+                            <div class="time-label">
+                                <span class="bg-red">@item.Tarih.ToString("D")</span>
+                            </div>
+                            <!-- /.timeline-label -->
+                            <!-- timeline item -->
+                            <div>
+                                <i class="fas fa-envelope bg-blue"></i>
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fas fa-clock"></i> 12:05</span>
+                                    <h3 class="timeline-header"><a href="#">@item.Satışlar.Ürünler.Marka</a> - @item.Satışlar.Ürünler.ÜrünAd</h3>
+
+                                    <div id="toast-container" class="timeline-body">
+                                        <div id="content">
+                                            <img style="width:100px;height:100px" src="@item.Satışlar.Ürünler.ÜrünGörsel" />
+                                        </div>
+                                        <div id="sidebar">
+
+                                            @item.Satışlar.Ürünler.ÜrünBilgi
+                                        </div>
+                                      
+                                    </div>
+                                    <div class="timeline-footer">
+                                        <a href="/KullanıcıKargo/Index2/@item.KargoId" class="btn btn-primary btn-sm">Kargo Takip</a>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                           
+
+                        </div>
+                    </div>
+                    }
+                    <!-- /.col -->
+                </div>
+            </div>
+            <!-- /.timeline -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+    <script src="/Klasörler/web4/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/Klasörler/web4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/Klasörler/web4/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="/Klasörler/web4/dist/js/demo.js"></script>
+
+</body>
+
+
+

@@ -1,0 +1,144 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Satışlar>
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<br />
+
+<div class="card-body p-0">
+    <table id="tbl1" class="table table-striped projects">
+        <thead>
+            <tr>
+                
+                <th>
+                    Ürün Ad
+                </th>
+                <th>
+
+                    Ürün Görsel
+                </th>
+                <th>
+                    Personel
+                </th>
+                <th>
+                    Müşteri
+                </th>
+                <th>
+                    Tarih
+                </th>
+              
+                <th>
+                    Birim Fiyat
+                </th>
+                <th>
+                    Adet
+                </th>
+                <th>
+                    Toplam Fiyat
+                </th>
+                <th>
+                    Satış İptal
+                </th>
+                <th>Kargola</th>
+                <th>Yazdır</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+            <tr>
+                <td>
+                    @item.Ürünler.ÜrünAd
+                </td>
+
+                <td>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <img alt="Avatar" class="table-avatar" src="@item.Ürünler.ÜrünGörsel">
+                        </li>
+
+
+
+                    </ul>
+                </td>
+
+                <td>
+                    @item.Personeller.PersonelAd @item.Personeller.PersonelSoyad
+                </td>
+
+                <td>
+                    @item.Müşteriler.MüşteriAd @item.Müşteriler.MüşteriSoyad
+                </td>
+
+                <td>
+                    @item.Tarih.ToString("d")
+                </td>
+
+                <td>
+                    @item.BirimFiyat
+                </td>
+                <td>
+                    @item.Adet
+                </td>
+                <td>
+                    @item.ToplamFiyat
+                </td>
+                <td>
+                    <a class="btn btn-outline-dark btn-sm" href="/Satışlar/Satışİptal/@item.SatışId">
+                        <i class="fa fa-times">
+                        </i>
+
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-success btn-sm" href="/Ürünler/YeniKargo/@item.SatışId">
+                        <i class="fa fa-truck">
+                        </i>
+
+                    </a>
+
+                </td>
+                <td>
+                    <a class="btn btn-outline-danger btn-sm" href="#">
+                        <i class="fas fa-print">
+                        </i>
+
+                    </a>
+
+                </td>
+            </tr>
+
+            }
+
+
+
+
+
+
+        </tbody>
+    </table>
+</div>
+
+
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

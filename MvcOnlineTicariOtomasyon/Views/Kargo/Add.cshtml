@@ -1,0 +1,53 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.KargoTakip
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm("Add", "Kargo", FormMethod.Post))
+{
+
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Kargo Takip</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="form-group">
+                <label for="inputName">Açıklama</label>
+                @Html.TextBoxFor(x => x.Açıklama, new { @class = "form-control" })
+            </div>
+
+            <!--<div class="form-group">
+                <label for="inputName">Tarih</label>-->
+            @*<input type="datetime-local" name="Tarih" class="form-control" />*@
+            <!--@Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+
+            </div>-->
+
+
+
+
+
+
+
+        </div>
+
+        <!-- /.card-body -->
+    </div> <!-- /.card -->
+    <div class="col-12">
+        <button type="submit" id="btn1" class="btn btn-outline-success btn-block text-uppercase">Ekle</button>
+
+    </div>
+}
+
+

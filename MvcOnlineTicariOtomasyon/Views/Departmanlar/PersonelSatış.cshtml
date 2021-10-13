@@ -1,0 +1,88 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Satışlar>
+@{
+    ViewBag.Title = "PersonelSatış";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<div class="card-body p-0">
+    <h3>@ViewBag.d Satış Listesi</h3>
+    <br />
+    <table class="table table-striped projects">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Ürün Ad
+                </th>
+                <th>
+                    Birim Fiyat
+                </th>
+                <th>
+                    Adet
+                </th>
+                <th>
+                    Toplam Fiyat
+                </th>
+                <th>Müşteri</th>
+                <th>Tarih</th>
+                
+
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+            <tr>
+                <td>
+                    #@item.SatışId
+                </td>
+                <td>
+
+                    @item.Ürünler.ÜrünAd
+
+
+                </td>
+                <td>
+
+                    @item.BirimFiyat
+
+
+                </td>
+
+
+                <td>
+                    @item.Adet
+                </td>
+                <td>
+                    @item.ToplamFiyat
+                </td>
+                <td>
+                    @item.Müşteriler.MüşteriAd @item.Müşteriler.MüşteriSoyad
+                </td>
+                <td>
+                    @item.Tarih
+                </td>
+
+
+             
+            </tr>
+
+            }
+
+
+
+
+
+
+        </tbody>
+    </table>
+</div>

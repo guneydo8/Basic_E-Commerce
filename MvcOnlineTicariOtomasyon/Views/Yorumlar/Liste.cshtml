@@ -1,0 +1,60 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Yorumlar>
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<div class="col-12 tm-block-col">
+    <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+        <h2 class="tm-block-title">Personel Listesi</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">ÜRÜN</th>
+                    <th scope="col">MÜŞTERİ</th>
+
+                    <th scope="col">TARİH</th>
+                    <th scope="col">YORUM</th>
+                    <th scope="col">İŞLEMLER</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var t in Model)
+                {
+                    <tr>
+                        <td scope="row"><b>#@t.YorumId</b></td>
+                        <td scope="row"><b>@t.Ürünler.ÜrünAd</b></td>
+
+
+                        <td scope="row"><b>@t.Müşteriler.MüşteriAd @t.Müşteriler.MüşteriSoyad</b></td>
+                        <td scope="row"><b>@t.Tarih</b></td>
+                        <td scope="row"><b>@t.İçerik</b></td>
+
+
+
+                     
+
+                        <td>
+                           
+                            <a href="/Personeller/Sil/@t.YorumId" class="btn btn-info">Sil</a>
+                        </td>
+                    </tr>
+                }
+
+
+
+
+
+            </tbody>
+        </table>
+
+    </div>
+    <br />
+    
+</div>
+

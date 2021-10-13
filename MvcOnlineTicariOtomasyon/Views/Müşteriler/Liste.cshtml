@@ -1,0 +1,129 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Müşteriler>
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+
+<div class="card-body p-0">
+    <table id="tbl1" class="table table-striped projects">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Müşteri Ad
+                </th>
+                <th>
+                    Müşteri Soyad
+                </th>
+                <th>Müşteri Fotoğraf</th>
+                <th>Müşteri Şehir</th>
+                <th>Müşteri Mail</th>
+                <th>Müşteri Şifre</th>
+
+
+
+                <th>
+                    <a class="btn btn-info btn-sm" href="/Müşteriler/Ekle/">
+                        <i class="fa fa-plus">
+                            Müşteri Ekle
+                        </i>
+
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+                <tr>
+                    <td>
+                        #@item.MüşteriId
+                    </td>
+                    <td>
+
+                        @item.MüşteriAd
+
+
+                    </td>
+                    <td>
+
+                        @item.MüşteriSoyad
+
+
+                    </td>
+                    <td>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <img alt="Avatar" class="table-avatar" src="@item.MüşteriFotograf">
+                            </li>
+
+
+
+                        </ul>
+                    </td>
+
+                    <td>
+                        @item.MüşteriŞehir
+                    </td>
+                    <td>
+                        @item.MüşteriMail
+                    </td>
+                    <td>
+                        @item.MüşteriŞifre
+                    </td>
+
+
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="/Müşteriler/Detay/@item.MüşteriId">
+                            <i class="fas fa-folder">
+                            </i>
+
+                        </a>
+                        <a class="btn btn-info btn-sm" href="/Müşteriler/Güncelle/@item.MüşteriId">
+                            <i class="fas fa-pencil-alt">
+                            </i>
+
+                        </a>
+                        <a class="btn btn-danger btn-sm" href="/Müşteriler/Sil/@item.MüşteriId">
+                            <i class="fas fa-trash">
+                            </i>
+
+                        </a>
+                    </td>
+                </tr>
+
+            }
+
+
+
+
+
+
+        </tbody>
+    </table>
+</div>
+
+
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

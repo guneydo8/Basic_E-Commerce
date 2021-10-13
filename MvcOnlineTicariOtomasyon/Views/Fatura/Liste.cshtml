@@ -1,0 +1,131 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Faturalar>
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+
+
+
+
+<br />
+
+<div class="card-body p-0">
+    <table id="tbl1" class="table table-striped projects">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Seri No
+                </th>
+                <th>
+                    Sıra No
+                </th>
+                <th>
+                    Vergi Dairesi
+                </th>
+                <th>
+                    Tarih
+                </th>
+                <th>
+                    Saat
+                </th>
+                
+                <th>
+                   Müşteri
+                </th>
+              
+                <th>
+                    <a class="btn btn-info btn-sm" href="/Fatura/Ekle/">
+                        <i class="fa fa-plus">
+                            Fatura Ekle
+                        </i>
+
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+            <tr>
+                <td>
+                    #@item.FaturaId
+                </td>
+                <td>
+
+                    @item.FaturaSeriNo
+
+
+                </td>
+                <td>
+                    @item.FaturaSıraNo
+                </td>
+
+                <td>
+                    @item.VergiDairesi
+                </td>
+
+                <td>
+                    @item.Tarih.ToString("d")
+                </td>
+
+                <td>
+                    @item.Tarih.ToString("t")
+                </td>
+
+                <td>
+                    @item.Müşteriler.MüşteriAd @item.Müşteriler.MüşteriSoyad
+                </td>
+               
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Fatura/Detay/@item.FaturaId">
+                        <i class="fas fa-folder">
+                        </i>
+
+                    </a>
+                  
+                    <a class="btn btn-danger btn-sm" href="/Fatura/Güncelle/@item.FaturaId">
+                        <i class="fas fa-pencil-alt">
+                        </i>
+
+                    </a>
+                </td>
+            </tr>
+
+            }
+
+
+
+
+
+
+        </tbody>
+    </table>
+</div>
+
+
+
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

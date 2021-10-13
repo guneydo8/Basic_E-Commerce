@@ -1,0 +1,55 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.Departmanlar
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+
+
+
+@using (Html.BeginForm("Ekle", "Departmanlar", FormMethod.Post))
+{
+
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Yeni Departman Girişi</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="form-group">
+                <label for="inputName">Departman Adı</label>
+                @Html.TextBoxFor(x => x.DepartmanAd, new { @class = "form-control" })
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+        <!-- /.card-body -->
+    </div> <!-- /.card -->
+    <div class="col-12">
+        <button type="submit" id="btn1" class="btn btn-outline-success btn-block text-uppercase">Departman Ekle</button>
+
+    </div>}
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+<script>
+    $('#btn1').click(function () {
+        swal("Kategori Başarılı Bir Şekilde Eklendi", "success");
+    })
+</script>

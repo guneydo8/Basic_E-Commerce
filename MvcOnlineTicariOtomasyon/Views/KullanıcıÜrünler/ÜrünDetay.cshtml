@@ -1,0 +1,232 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.Class1
+@{
+    ViewBag.Title = "ÜrünDetay";
+    Layout = "~/Views/Shared/KullanıcıLayout.cshtml";
+}
+
+
+<link rel="stylesheet" href="/Klasörler/web5/css/main.css">
+
+
+<body>
+    <!-- ##### Header Area Start ##### -->
+    <!-- ##### Header Area End ##### -->
+    <!-- ##### Right Side Cart Area ##### -->
+    <!-- ##### Right Side Cart End ##### -->
+    <!-- ##### Single Product Details Area Start ##### -->
+
+    <div class="breadcumb_area bg-img" style="background-image: url(/Klasörler/webkullanıcı/img/bg-img/breadcumb.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="page-title text-center">
+                        <h2>Ürün Detay Sayfası</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <form class="cart-form clearfix">
+        <section class="single_product_details_area d-flex align-items-center">
+            @foreach (var item in Model.ürn)
+            {
+
+
+
+                <!-- Single Product Thumb -->
+                <div class="single_product_thumb clearfix">
+                    <div class="product_thumbnail_slides owl-carousel">
+                        <img src="@item.ÜrünGörsel" alt="">
+                        <img src="@item.ÜrünGörsel" alt="">
+                        <img src="@item.ÜrünGörsel" alt="">
+                    </div>
+                </div>
+
+                <!-- Single Product Description -->
+                <div class="single_product_desc clearfix">
+                    <span>@item.Marka</span>
+                    <a href="cart.html">
+                        <h2>@item.ÜrünAd</h2>
+                    </a>
+                    <p class="product-price"> ₺@item.SatışFiyat</p>
+                    <p class="product-desc">@item.ÜrünBilgi</p>
+                    <input type="hidden"  name="ÜrünId" value="@ViewBag.d1" />
+                    <!-- Form -->
+                    <!-- Select Box -->
+                    <div class="select-box d-flex mt-50 mb-30">
+                        @*<select name="select" id="productSize" class="mr-5">
+                            <option value="value">Size: XL</option>
+                            <option value="value">Size: X</option>
+                            <option value="value">Size: M</option>
+                            <option value="value">Size: S</option>
+                        </select>*@
+                        <select name="select" id="productColor">
+                            <option value="value">Color: Black</option>
+                            <option value="value">Color: White</option>
+                            <option value="value">Color: Red</option>
+                            <option value="value">Color: Purple</option>
+                        </select>
+                    </div>
+                    <!-- Cart & Favourite Box -->
+                    <div class="cart-fav-box d-flex align-items-center">
+                        <!-- Cart -->
+
+                        <a href="/KullanıcıSepetim/SepeteEkle/@item.ÜrünId" class="btn essence-btn">Sepete Ekle</a>
+                        <!-- Favourite -->
+                        <div class="product-favourite ml-4">
+                            <a href="/KullanıcıÜrünler/FavoriEkle?id=@item.ÜrünId" class="favme fa fa-heart"></a>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </section>
+    </form>
+            <section class="product_description_area">
+                <div class="container">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Açıklama</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                               aria-selected="false">Genel Özellikler</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                               aria-selected="false">Yorumlar</a>
+                        </li>
+
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            @foreach (var item in Model.ürn)
+                            {
+
+
+                                <p>
+                                    @item.ÜrünBilgi
+                                </p>
+                            }
+
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        @foreach (var item in Model.ürn)
+                                        {
+
+
+                                            <tr>
+                                                <td>
+                                                    <h5>Ürün Ad</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>@item.ÜrünAd</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h5>Marka</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>@item.Marka</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h5>Kategori</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>@item.Kategori.KategoriAd</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h5>Stok</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>@item.Stok</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h5>Satış Fiyat</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>@item.SatışFiyat</h5>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    @foreach (var item in Model.yrm)
+                                    {
+
+                                        <div class="comment_list">
+                                            <div class="review_item">
+                                                <div class="media">
+                                                    <div class="d-flex">
+                                                        <img style="width:75px;height:75px" src="@item.Müşteriler.MüşteriFotograf" alt="">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4>@item.Müşteriler.MüşteriAd @item.Müşteriler.MüşteriSoyad</h4>
+                                                        <h5>@item.Tarih</h5>
+                                                        <a class="reply_btn" href="#">Reply</a>
+                                                    </div>
+                                                </div>
+                                                <p>
+                                                    @item.İçerik
+                                                </p>
+                                            </div>
+
+
+                                        </div>
+                                    }
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="review_box">
+                                        <h4>Bir Yorum Yazın</h4>
+                                        <form class="row contact_form" method="post">
+
+                                            <input type="hidden" name="ÜrünId" value="@ViewBag.d1" />
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <textarea class="form-control" name="İçerik" id="message" rows="1" placeholder="Yorumunuz..."></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 text-right">
+                                                <button type="submit" value="submit" class="btn primary-btn">Paylaş</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- ##### Single Product Details Area End ##### -->
+            <!-- ##### Footer Area Start ##### -->
+
+
+        </body>
+
+
+

@@ -1,0 +1,98 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Ürünler>
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h3>@ViewBag.d1 Kategorisine Ait Ürün Listesi</h3>
+<br />
+<div class="card-body p-0">
+    <table class="table table-striped projects">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Ürün Ad
+                </th>
+                <th>
+                    Ürün Görsel
+                </th>
+                <th>
+                    Kategori
+                </th>
+                <th>
+                    Marka
+                </th>
+                <th>
+                    Stok
+                </th>
+                <th>
+                    Alış Fiyat
+                </th>
+                <th>
+                    Satış Fiyat
+                </th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+                <tr>
+                    <td>
+                        #@item.ÜrünId
+                    </td>
+                    <td>
+
+                        @item.ÜrünAd
+
+
+                    </td>
+                    <td>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <img alt="Avatar" class="table-avatar" src="@item.ÜrünGörsel">
+                            </li>
+
+
+
+                        </ul>
+                    </td>
+
+                    <td>
+                        @item.Kategori.KategoriAd
+                    </td>
+
+                    <td>
+                        @item.Marka
+                    </td>
+
+                    <td>
+                        @item.Stok
+                    </td>
+
+                    <td>
+                        @item.AlışFiyat
+                    </td>
+                    <td>
+                        @item.SatışFiyat
+                    </td>
+                    
+                </tr>
+
+            }
+
+
+
+
+
+
+    </tbody>
+</table>
+</div>
+

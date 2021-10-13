@@ -1,0 +1,76 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.FaturaKalem
+@{
+    ViewBag.Title = "FaturaÜrün";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+
+
+@using (Html.BeginForm("FaturaÜrün", "Fatura", FormMethod.Post))
+{
+
+    <div class="card card-purple">
+        <div class="card-header">
+            <h3 class="card-title">Fatura Ürün Girişi</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="form-group">
+                <label for="inputClientCompany">Ürün</label>
+                @Html.DropDownListFor(x => x.ÜrünId, (List<SelectListItem>)ViewBag.ürn, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="inputName">Birim Fiyat</label>
+                @*@Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control" })*@
+                <input type="text"  id="txt1" name="BirimFiyat" value="@ViewBag.fyt" onkeyup="sum();"  class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="inputDescription">Adet</label>
+                @*@Html.TextBoxFor(x => x.Miktar, new { @class = "form-control" })*@
+                <input type="number" id="txt2" placeholder="Ürün Adedi Giriniz" min="1" required="" name="Miktar" class="form-control" onchange="sum();" />
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputProjectLeader">Toplam Fiyat</label>
+                @*@Html.TextBoxFor(x => x.Tutar, new { @class = "form-control" })*@
+                <input type="text" id="txt3" class="form-control" name="Tutar" readonly />
+            </div>
+          
+          
+
+
+        </div>
+
+        <!-- /.card-body -->
+    </div> <!-- /.card -->
+    <div class="col-12">
+        <button type="submit" class="btn btn-outline-success btn-block text-uppercase">Fatura Ürün Ekle</button>
+    </div>}
+
+
+<script>
+    function sum() {
+        var birim = document.getElementById('txt1').value;
+        var adet = document.getElementById('txt2').value;
+        var toplam = parseFloat(birim) * parseFloat(adet);
+
+        if (!isNaN(toplam)) {
+            document.getElementById('txt3').value = toplam;
+        }
+    }
+</script>
+
+
+
+
+
+

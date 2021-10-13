@@ -1,0 +1,102 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.Class1
+
+
+
+<div class="right-side-cart-area">
+
+    <!-- Cart Button -->
+    <div class="cart-button">
+        <a href="#" id="rightSideCart"><img src="~/Klasörler/webkullanıcı/img/core-img/user.svg" alt=""> <span></span></a>
+    </div>
+
+    <div class="cart-content d-flex">
+
+
+
+
+        <!-- Cart List Area -->
+        <div class="cart-list">
+            <h5><span style="background-color:#000000;color:#ffffff">Geçmiş Siparişlerim</span></h5>
+            @foreach (var item in Model.stş)
+            {
+                <!-- Single Cart Item -->
+                <div class="single-cart-item">
+                    <a href="#" class="product-image">
+                        <img src="@item.Ürünler.ÜrünGörsel" alt="">
+                        <!-- Cart Item Desc -->
+                        <div class="cart-item-desc">
+
+                            <span class="badge">@item.Ürünler.Marka</span>
+                            <h6>@item.Ürünler.ÜrünAd</h6>
+                            <p class="size">Tarih: @item.Tarih.ToString("d")</p>
+                            <p class="color">Adet: @item.Adet</p>
+                            <p class="price">@item.Ürünler.SatışFiyat</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Single Cart Item -->
+                <!-- Single Cart Item -->
+            }
+
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="cart-amount-summary">
+            @foreach (var item in Model.mst)
+            {
+
+
+
+
+                <div class="card-body box-profile">
+                    <div class="text-center">
+                        <img class="profile-user-img img-fluid img-circle"
+                             src="@item.MüşteriFotograf"
+                             alt="User profile picture">
+                    </div>
+
+                    <h3 class="profile-username text-center">@item.MüşteriAd @item.MüşteriSoyad</h3>
+
+                    <p class="text-muted text-center">@item.MüşteriMail</p>
+
+                    <ul class="list-group list-group-unbordered mb-3">
+                        <li class="list-group-item">
+                            <b style="color:#000000">Sipariş Sayısı</b> <a class="float-right">@ViewBag.d1</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b style="color:#000000">Yorum Sayısı</b> <a class="float-right">@ViewBag.d2</a>
+                        </li>
+
+
+                        <li class="list-group-item">
+                            <b style="color:#000000">Harcanan Para</b> <a class="float-right">@ViewBag.d3</a>
+                        </li>
+
+
+
+                        <li class="list-group-item">
+                            <b style="color:#000000">Son Siparişim</b> <a class="float-right">@ViewBag.d4</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b style="color:#000000">Favori Sayısı</b> <a class="float-right">@ViewBag.d5</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b style="color:#000000">Sepet Sayısı</b> <a class="float-right">@ViewBag.d6</a>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                </div>
+                <!-- /.card-body -->
+
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

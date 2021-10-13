@@ -1,0 +1,151 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Ürünler>
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<br />
+
+<div class="card-body p-0">
+    <table id="tbl1" class="table table-striped projects">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Ürün Ad
+                </th>
+                <th>
+                    Ürün Görsel
+                </th>
+                <th>
+                    Kategori
+                </th>
+                <th>
+                    Marka
+                </th>
+                <th>
+                    Stok
+                </th>
+                <th>
+                    Alış Fiyat
+                </th>
+                <th>
+                    Satış Fiyat
+                </th>
+                <th>
+                    Satış Yap
+                </th>
+                <th>
+                    <a class="btn btn-info btn-sm" href="/Ürünler/Ekle/">
+                        <i class="fa fa-plus">
+                            Ürün Ekle
+                        </i>
+
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+                <tr>
+                    <td>
+                        #@item.ÜrünId
+                    </td>
+                    <td>
+
+                        @item.ÜrünAd
+
+
+                    </td>
+                    <td>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <img alt="Avatar" class="table-avatar" src="@item.ÜrünGörsel">
+                            </li>
+
+
+
+                        </ul>
+                    </td>
+
+                    <td>
+                        @item.Kategori.KategoriAd
+                    </td>
+
+                    <td>
+                        @item.Marka
+                    </td>
+
+                    <td>
+                        @item.Stok
+                    </td>
+
+                    <td>
+                        @item.AlışFiyat
+                    </td>
+                    <td>
+                        @item.SatışFiyat
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-dark btn-sm" href="/Ürünler/ÜrünSatış/@item.ÜrünId">
+                            <i class="fa fa-credit-card">
+                            </i>
+
+                        </a>
+                    </td>
+
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="/Ürünler/urundetay/@item.ÜrünId">
+                            <i class="fas fa-folder">
+                            </i>
+
+                        </a>
+                        <a class="btn btn-info btn-sm" href="/Ürünler/Güncelle/@item.ÜrünId">
+                            <i class="fas fa-pencil-alt">
+                            </i>
+
+                        </a>
+                        <a class="btn btn-danger btn-sm" href="/Ürünler/Sil/@item.ÜrünId">
+                            <i class="fas fa-trash">
+                            </i>
+
+                        </a> 
+                     
+                    </td>
+                </tr>
+
+            }
+
+
+
+
+
+
+    </tbody>
+</table>
+</div>
+
+
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

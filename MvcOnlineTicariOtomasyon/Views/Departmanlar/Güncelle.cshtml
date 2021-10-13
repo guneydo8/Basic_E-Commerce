@@ -1,0 +1,50 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.Departmanlar
+@{
+    ViewBag.Title = "Güncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Güncelle", "Departmanlar", FormMethod.Post))
+{
+
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Departman Güncelle</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+    @Html.HiddenFor(x=>x.DepartmanId)
+        <div class="card-body">
+            <div class="form-group">
+                <label for="inputName">Departman Adı</label>
+                @Html.TextBoxFor(x => x.DepartmanAd, new { @class = "form-control" })
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+        <!-- /.card-body -->
+    </div> <!-- /.card -->
+    <div class="col-12">
+        <button type="submit" class="btn btn-outline-success btn-block text-uppercase">Departman Güncelle</button>
+    </div>}
+
+
+
+
+
+
+
+
+

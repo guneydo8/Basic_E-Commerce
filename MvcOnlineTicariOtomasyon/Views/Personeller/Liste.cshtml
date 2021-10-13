@@ -1,0 +1,127 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Personeller>
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+
+<div class="card-body p-0">
+    <table id="tbl1" class="table table-striped projects">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Personel Ad
+                </th>
+                <th>
+                    Personel Soyad
+                </th>
+                <th>Personel Fotoğraf</th>
+                <th>Personel Departman</th>
+
+
+
+                <th>
+                    <a class="btn btn-info btn-sm" href="/Personeller/Ekle/">
+                        <i class="fa fa-plus">
+                            Personel Ekle
+                        </i>
+
+                    </a>
+                    <a class="btn btn-info btn-sm" href="/Personeller/PersonelCard/">
+                        <i class="fa fa-address-card">
+                            Personel Kart
+                        </i>
+
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+                <tr>
+                    <td>
+                        #@item.PersonelId
+                    </td>
+                    <td>
+
+                        @item.PersonelAd
+
+
+                    </td>
+                    <td>
+
+                        @item.PersonelSoyad
+
+
+                    </td>
+                    <td>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <img alt="Avatar" class="table-avatar" src="@item.PersonelFotograf">
+                            </li>
+
+
+
+                        </ul>
+                    </td>
+
+                    <td>
+                        @item.Departmanlar.DepartmanAd
+                    </td>
+
+
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="/Departmanlar/PersonelSatış/@item.PersonelId">
+                            <i class="fas fa-folder">
+                            </i>
+
+                        </a>
+                        <a class="btn btn-info btn-sm" href="/Personeller/Güncelle/@item.PersonelId">
+                            <i class="fas fa-pencil-alt">
+                            </i>
+
+                        </a>
+                        <a class="btn btn-danger btn-sm" href="/Personeller/Sil/@item.PersonelId">
+                            <i class="fas fa-trash">
+                            </i>
+
+                        </a>
+                    </td>
+                </tr>
+
+            }
+
+
+
+
+
+
+        </tbody>
+    </table>
+</div>
+
+
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

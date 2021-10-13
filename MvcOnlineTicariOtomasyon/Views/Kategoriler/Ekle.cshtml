@@ -1,0 +1,55 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.Kategori
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm("Ekle", "Kategoriler", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Yeni Kategori Girişi</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="form-group">
+                <label for="inputName">Kategori Adı</label>
+                @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
+            </div>
+
+
+
+            <div>
+                <input class="btn btn-danger btn-block text-uppercase" type="file" required="" name="KategoriGörsel" />
+
+            </div>
+
+
+
+        </div>
+
+        <!-- /.card-body -->
+    </div> <!-- /.card -->
+    <div class="col-12">
+        <button type="submit" id="btn1" class="btn btn-outline-success btn-block text-uppercase">Kategori Ekle</button>
+    </div>}
+
+
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $('#btn1').click(function () {
+        alert("Kategori Başarılı Bir Şekilde Eklendi")
+    });
+</script>
+

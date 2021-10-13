@@ -1,0 +1,65 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.Müşteriler
+@{
+    ViewBag.Title = "Güncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+
+
+@using (Html.BeginForm("Güncelle", "Müşteriler", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Müşteri Güncelle</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="card-body">
+            @Html.HiddenFor(x=>x.MüşteriId)
+            <div class="form-group">
+                <label for="inputName">Müşteri Ad</label>
+                @Html.TextBoxFor(x => x.MüşteriAd, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="inputDescription">Müşteri Soyad</label>
+                @Html.TextBoxFor(x => x.MüşteriSoyad, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="inputDescription">Müşteri Şehir</label>
+                @Html.TextBoxFor(x => x.MüşteriŞehir, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="inputDescription">Müşteri Mail</label>
+                @Html.TextBoxFor(x => x.MüşteriMail, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="inputDescription">Müşteri Şifre</label>
+                @Html.TextBoxFor(x => x.MüşteriŞifre, new { @class = "form-control" })
+            </div>
+
+
+
+            <div>
+                <input class="btn btn-danger btn-block text-uppercase" type="file" name="MüşteriFotograf" />
+
+            </div>
+
+
+
+        </div>
+
+        <!-- /.card-body -->
+    </div> <!-- /.card -->
+    <div class="col-12">
+        <button type="submit" class="btn btn-outline-success btn-block text-uppercase">Müşteri Güncelle</button>
+    </div>}
+
+

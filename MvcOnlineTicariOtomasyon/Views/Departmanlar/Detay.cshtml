@@ -1,0 +1,93 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Personeller>
+
+    @{
+        ViewBag.Title = "Detay";
+        Layout = "~/Views/Shared/AdminLayout.cshtml";
+    }
+
+
+
+
+<div class="card-body p-0">
+    <h3>@ViewBag.d1 Personel Listesi</h3>
+    <br />
+    <table class="table table-striped projects">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Personel Ad
+                </th>
+                <th>
+                    Personel Soyad
+                </th>
+                <th>Personel Fotoğraf</th>
+                <th>Personel Departman</th>
+                <th>Personel Satış</th>
+
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+                <tr>
+                    <td>
+                        #@item.PersonelId
+                    </td>
+                    <td>
+
+                        @item.PersonelAd
+
+
+                    </td>
+                    <td>
+
+                        @item.PersonelSoyad
+
+
+                    </td>
+                    <td>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <img alt="Avatar" class="table-avatar" src="@item.PersonelFotograf">
+                            </li>
+
+
+
+                        </ul>
+                    </td>
+
+                    <td>
+                        @item.Departmanlar.DepartmanAd
+                    </td>
+
+
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="/Departmanlar/PersonelSatış/@item.PersonelId">
+                            <i class="fas fa-folder">
+                            </i>
+
+                        </a>
+                     
+                    </td>
+                </tr>
+
+            }
+
+
+
+
+
+
+        </tbody>
+    </table>
+</div>
+

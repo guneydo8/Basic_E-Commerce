@@ -1,0 +1,44 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Ürünler>
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+    <link rel="stylesheet" href="/Klasörler/web3/css/style.css">
+
+<body>
+
+    <div class="site-wrap">
+
+
+        <div class="site-section" data-aos="fade">
+            <div class="container-fluid">
+
+
+
+               
+
+
+                <div class="row" id="lightgallery">
+                    @foreach (var item in Model)
+                    {
+
+                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 item" data-aos="fade" data-src="@item.ÜrünGörsel" data-sub-html="<h4>@item.ÜrünAd</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor doloremque hic excepturi fugit, sunt impedit fuga tempora, ad amet aliquid?</p>">
+                            <a href="@item.ÜrünGörsel"><img src="@item.ÜrünGörsel" alt="IMage" class="img-fluid"></a>
+                        </div>
+
+                    }
+                    </div>
+                
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+</body>
+

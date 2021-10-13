@@ -1,0 +1,106 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Kategori>
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<br />
+<div class="card-body p-0">
+    <table id="tbl1" class="table table-striped projects">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Kategori Ad
+                </th>
+                <th>
+                    Kategori Görsel
+                </th>
+
+
+
+
+                <th>
+                    <a class="btn btn-info btn-sm" href="/Kategoriler/Ekle/">
+                        <i class="fa fa-plus">
+                            Kategori Ekle
+                        </i>
+
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+                <tr>
+                    <td>
+                        #@item.KategoriId
+                    </td>
+                    <td>
+
+                        @item.KategoriAd
+
+
+                    </td>
+
+                    <td>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <img alt="Avatar" class="table-avatar" src="@item.KategoriGörsel">
+                            </li>
+
+
+
+                        </ul>
+                    </td>
+
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="/Kategoriler/Detay/@item.KategoriId">
+                            <i class="fas fa-folder">
+                            </i>
+
+                        </a>
+                        <a class="btn btn-info btn-sm" href="/Kategoriler/Güncelle/@item.KategoriId">
+                            <i class="fas fa-pencil-alt">
+                            </i>
+
+                        </a>
+                        <a class="btn btn-danger btn-sm" href="/Kategoriler/Sil/@item.KategoriId">
+                            <i class="fas fa-trash">
+                            </i>
+
+                        </a>
+                    </td>
+                </tr>
+
+            }
+
+
+
+
+
+
+        </tbody>
+    </table>
+</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

@@ -1,0 +1,41 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.TodoList
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Edit", "AnaSayfa", FormMethod.Post))
+{
+
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Not Güncelle</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        @Html.HiddenFor(x=>x.Id)
+        <div class="card-body">
+            <div class="form-group">
+                <label for="inputName">Not</label>
+                @Html.TextBoxFor(x => x.İçerik, new { @class = "form-control" })
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+        <!-- /.card-body -->
+    </div> <!-- /.card -->
+    <div class="col-12">
+        <button type="submit" class="btn btn-outline-success btn-block text-uppercase">Not Güncelle</button>
+    </div>}
+

@@ -1,0 +1,80 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.Satışlar
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+<div class="container tm-mt-big tm-mb-big">
+    <div class="row">
+        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+            <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="tm-block-title d-inline-block">Satış Ekranı</h2>
+                    </div>
+                </div>
+                <div class="row tm-edit-product-row">
+
+
+                    <div class="col-xl-6 col-lg-6 col-md-12">
+                        <form method="post">
+                            <div class="form-group mb-3">
+                                <label for="name">
+                                    Ürün Adı
+                                </label>
+                                @Html.DropDownListFor(x => x.ÜrünId, (List<SelectListItem>)ViewBag.ürn, new { @class = "form-control" });
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="name">
+                                    Personel
+                                </label>
+                                @Html.DropDownListFor(x => x.PersonelId, (List<SelectListItem>)ViewBag.prs, new { @class = "form-control" });
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="name">
+                                    Müşteri
+                                </label>
+                                @Html.DropDownListFor(x => x.MüşteriId, (List<SelectListItem>)ViewBag.mst, new { @class = "form-control" });
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="name">
+                                    Adet
+                                </label>
+                                @Html.TextBoxFor(x => x.Adet, new { @class = "form-control" });
+                            </div>
+                            <div class="row">
+                                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                    <label for="expire_date">
+                                        Birim Fiyat
+                                    </label>
+
+                                    @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control" });
+                                </div>
+                                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                    <label for="name">
+                                        Toplam Fiyat
+                                    </label>
+                                    @Html.TextBoxFor(x => x.ToplamFiyat, new { @class = "form-control" });
+                                </div>
+                            </div>
+                          
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-block text-uppercase">Satış Yap</button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+
+                        <img style="width:300px;height:400px;margin-left:50px;margin-top:100px" src="~/Klasörler/resim2.png" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

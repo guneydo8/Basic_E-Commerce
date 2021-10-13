@@ -1,0 +1,20 @@
+﻿
+@if (ViewBag.d1 != null)
+{
+    <li>
+        <a href="#">@ViewBag.d2</a>
+        <ul class="dropdown">
+            <li><a href="/SiparişGeçmiş/Index/">Sipariş Geçmişim</a></li>
+            <li><a href="/KullanıcıKargo/Index/">Kargo Takibi</a></li>
+            <li><a href="/Mesajlar/Inbox/">Mesajlar</a></li>
+            <li><a href="/Duyuru/Index/">Duyurular</a></li>
+            <li><a href="/KullanıcıSepetim/KullanıcıFatura/">Fatura Talep Et</a></li>
+            <li><a href="/KullanıcıGüncelle/Index/@ViewBag.musteriıd">Bilgi Güncelle</a></li>
+
+            <li><a href="/KullanıcıLogin/Cıkış/">Çıkış Yap</a></li>
+
+        </ul>
+    </li>
+}
+
+
